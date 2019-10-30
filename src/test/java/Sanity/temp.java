@@ -39,7 +39,7 @@ public class temp
     @AfterClass
     public void closeBrowser() throws InterruptedException
     {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.quit();
     }
 }
