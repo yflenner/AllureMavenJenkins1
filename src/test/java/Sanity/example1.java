@@ -22,8 +22,8 @@ public class example1
     @BeforeClass
     public void openBrowser()
     {
-        initBrowser(System.getenv("browserName"));
-        //initBrowser("chrome");
+        //initBrowser(System.getenv("browserName"));
+        initBrowser("chrome");
         driver.manage().window().maximize();
         driver.get("http://atidcollege.co.il/Xamples/bmi");
     }
