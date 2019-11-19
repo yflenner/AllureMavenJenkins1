@@ -12,10 +12,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
@@ -26,34 +28,24 @@ public class example2
     DesiredCapabilities cap = new DesiredCapabilities();;
 
     @BeforeClass
-    public void openBrowser() throws MalformedURLException
+    @Parameters("browserName")
+    public void openBrowser(String BrowserName) throws MalformedURLException
     {
         //initBrowser(System.getenv("browserName"));
-        initBrowser("chrome");
+        initBrowser(BrowserName);
         driver.manage().window().maximize();
         driver.get("http://atidcollege.co.il/Xamples/bmi");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     public void initBrowser(String browserName) throws MalformedURLException
     {
         if(browserName.equalsIgnoreCase("chrome"))
-        {
             cap.setBrowserName(browserName);
-            cap.setPlatform(Platform.LINUX);
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
-
-//            WebDriverManager.chromedriver().setup();
-//            driver = new ChromeDriver();
-        }
         else if(browserName.equalsIgnoreCase("firefox"))
-        {
             cap.setBrowserName(browserName);
-            cap.setPlatform(Platform.LINUX);
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
-
-//            WebDriverManager.firefoxdriver().setup();
-//            driver = new FirefoxDriver();
-        }
+        cap.setPlatform(Platform.LINUX);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
     }
 
     @Test(description = "Test BMI Results")

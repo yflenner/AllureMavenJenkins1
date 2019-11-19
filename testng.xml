@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" parallel="tests">
+    <test name="Sanity on Chrome">
+        <parameter name="browserName" value="chrome" />
+        <classes>
+            <class name="Sanity.example2" />
+        </classes>
+    </test>
+    <test name="Sanity on Firefox">
+        <parameter name="browserName" value="firefox" />
+        <classes>
+            <class name="Sanity.example2" />
+        </classes>
+    </test>
+
+    <!--test name="Google on Chrome">
+        <parameter name="browserType" value="chrome" />
+        <classes>
+            <class name="AutomationDevOps.AutoDevOps.TestGoogle" />
+        </classes>
+    </test>
+    <test name="Google on Firefox">
+        <parameter name="browserType" value="firefox" />
+        <classes>
+            <class name="AutomationDevOps.AutoDevOps.TestGoogle" />
+        </classes>
+    </test>
+
+    <test name="Bing on Chrome">
+        <parameter name="browserType" value="chrome" />
+        <classes>
+            <class name="AutomationDevOps.AutoDevOps.TestBing" />
+        </classes>
+    </test>
+    <test name="Bing on Firefox">
+        <parameter name="browserType" value="firefox" />
+        <classes>
+            <class name="AutomationDevOps.AutoDevOps.TestBing" />
+        </classes>
+    </test-->
+</suite>
